@@ -5,21 +5,21 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 
-const SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
+// const SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
 
-async function from_google() {
-  const auth = await google.auth.getClient({
-    scopes: SCOPES,
-  });
-  const sheets = google.sheets({ version: "v4", auth });
-  const response = await sheets.spreadsheets.values.get({
-    spreadsheetId: "1NMjBbIzVdMCgDgBet7aSeukOLHQz_GIyveDSEPAd9K4",
-    range: "Sheet1", // Change this to the range you want to fetch
-  });
-  console.log(response);
-}
+// async function from_google() {
+//   const auth = await google.auth.getClient({
+//     scopes: SCOPES,
+//   });
+//   const sheets = google.sheets({ version: "v4", auth });
+//   const response = await sheets.spreadsheets.values.get({
+//     spreadsheetId: "1NMjBbIzVdMCgDgBet7aSeukOLHQz_GIyveDSEPAd9K4",
+//     range: "Sheet1", // Change this to the range you want to fetch
+//   });
+//   console.log(response);
+// }
 
-from_google();
+// from_google();
 app.get("/", (req, res) => {
   // Handle the update from the Google Sheets file
   console.log(req);
