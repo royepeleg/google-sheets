@@ -1,9 +1,11 @@
 const { google } = require("googleapis");
+const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
 const cors = require("cors");
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.json());
+// app.use(express.json());
 
 // const SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
 
@@ -23,6 +25,7 @@ app.use(express.json());
 app.get("/", (req, res) => {
   // Handle the update from the Google Sheets file
   console.log(req.body);
+
   res.send(req.body);
   // res.sendStatus(200);
 });
