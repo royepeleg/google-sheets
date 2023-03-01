@@ -22,8 +22,9 @@ app.use(express.json());
 // from_google();
 app.get("/", (req, res) => {
   // Handle the update from the Google Sheets file
-  console.log(req);
-  res.sendStatus(200);
+  console.log(req.body);
+  res.send(req.body);
+  // res.sendStatus(200);
 });
 
 app.listen(3000, () => {
