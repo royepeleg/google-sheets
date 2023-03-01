@@ -5,7 +5,7 @@ const app = express();
 const cors = require("cors");
 app.use(cors());
 app.use(bodyParser.json());
-// app.use(express.json());
+app.use(express.json());
 
 // const SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
 
@@ -23,6 +23,13 @@ app.use(bodyParser.json());
 
 // from_google();
 app.get("/", (req, res) => {
+  // Handle the update from the Google Sheets file
+  console.log(req.body);
+
+  res.send(req.body);
+  // res.sendStatus(200);
+});
+app.post("/updates", (req, res) => {
   // Handle the update from the Google Sheets file
   console.log(req.body);
 
